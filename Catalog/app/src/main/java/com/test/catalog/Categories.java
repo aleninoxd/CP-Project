@@ -50,10 +50,10 @@ public class Categories extends AppCompatActivity {
         dialog.setMessage("Loading content");
         if (!Helper.getJsonString(Categories.this).isEmpty()) {
             try {
-               checkArray(new JSONArray(Helper.getJsonString(Categories.this)));
+                checkArray(new JSONArray(Helper.getJsonString(Categories.this)));
             } catch (JSONException e) {
                 e.printStackTrace();
-                Log.e("err",e.toString());
+                Log.e("err", e.toString());
             }
 
         } else {
@@ -65,8 +65,8 @@ public class Categories extends AppCompatActivity {
                             dialog.dismiss();
                             try {
                                 JSONArray arr = response.getJSONObject("feed").getJSONArray("entry");
-                                Helper.setJsonString(Categories.this,arr.toString());
-                               checkArray(arr);
+                                Helper.setJsonString(Categories.this, arr.toString());
+                                checkArray(arr);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -90,18 +90,18 @@ public class Categories extends AppCompatActivity {
         JSONArray arrayClean = new JSONArray();
         ArrayList<String> strings = new ArrayList<>();
         JSONObject obj = new JSONObject();
-        obj.put("e","empt");
-        for (int a = 0;a<jsonArray.length();a++){
+        obj.put("e", "empt");
+        for (int a = 0; a < jsonArray.length(); a++) {
             String comp = jsonArray.getJSONObject(a).getJSONObject("category").getJSONObject("attributes").getString("term");
-            for (int b = 0 ;b< strings.size();b++){
-                if (comp.equals(strings.get(b))){
-                    jsonArray.put(a,obj);
+            for (int b = 0; b < strings.size(); b++) {
+                if (comp.equals(strings.get(b))) {
+                    jsonArray.put(a, obj);
                 }
             }
             strings.add(comp);
         }
-        for (int a=0;a<jsonArray.length();a++){
-            if (!jsonArray.getJSONObject(a).equals(obj)){
+        for (int a = 0; a < jsonArray.length(); a++) {
+            if (!jsonArray.getJSONObject(a).equals(obj)) {
                 arrayClean.put(jsonArray.getJSONObject(a));
             }
         }
@@ -111,13 +111,13 @@ public class Categories extends AppCompatActivity {
 
     private void executeContent(JSONArray array) {
 
-        if (Helper.isTablet(Categories.this)){
+        if (Helper.isTablet(Categories.this)) {
             GridView grid = (GridView) findViewById(R.id.categories_);
-            mAadapter2 adapter2 = new mAadapter2(Categories.this,array);
+            mAadapter2 adapter2 = new mAadapter2(Categories.this, array);
             grid.setAdapter(adapter2);
         } else {
             ListView list = (ListView) findViewById(R.id.categories);
-            mAadapter adapter = new mAadapter(Categories.this,array);
+            mAadapter adapter = new mAadapter(Categories.this, array);
             list.setAdapter(adapter);
         }
     }
@@ -193,7 +193,7 @@ public class Categories extends AppCompatActivity {
                 layout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(context, Apps.class).putExtra("cat",tv.getText().toString()));
+                        startActivity(new Intent(context, Apps.class).putExtra("cat", tv.getText().toString()));
                     }
                 });
             } catch (JSONException e) {
@@ -244,7 +244,7 @@ public class Categories extends AppCompatActivity {
                 layout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(context, Apps.class).putExtra("cat",tv.getText().toString()));
+                        startActivity(new Intent(context, Apps.class).putExtra("cat", tv.getText().toString()));
                     }
                 });
             } catch (JSONException e) {

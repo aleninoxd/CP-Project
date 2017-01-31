@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Apps"
-            android:label="Apps"/>
+            android:label="Apps"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Categories"
             android:label="Categories"/>
     </application>

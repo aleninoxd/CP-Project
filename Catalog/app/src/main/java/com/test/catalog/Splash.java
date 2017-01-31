@@ -1,6 +1,5 @@
 package com.test.catalog;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -44,7 +43,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 AlertDialog dialog = builder.create();
-                if (!isNetworkAvailable()){
+                if (!isNetworkAvailable()) {
                     dialog.show();
                 }
             }
@@ -58,7 +57,7 @@ public class Splash extends AppCompatActivity {
             }
         });
 
-        SharedPreferences preferences = getSharedPreferences("data",MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("data", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.apply();

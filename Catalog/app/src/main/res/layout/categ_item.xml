@@ -7,21 +7,21 @@
 
     <ImageView
         android:id="@+id/imgCateg"
-        android:background="@android:mipmap/sym_def_app_icon"
         android:layout_width="120dp"
-        android:layout_height="120dp" />
+        android:layout_height="120dp"
+        android:background="@android:mipmap/sym_def_app_icon" />
 
     <TextView
+        android:id="@+id/categoryTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/categoryTitle"
-        android:hint="Title of Category"
-        android:textSize="20sp"
-        android:gravity="end"
+        android:layout_alignParentRight="true"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:gravity="end"
+        android:hint="Title of Category"
+        android:textSize="20sp" />
 
 </RelativeLayout>

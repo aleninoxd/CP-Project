@@ -11,15 +11,15 @@ public class Helper {
 
     public static String getJsonString(Activity context) {
         SharedPreferences preferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
-        return preferences.getString("data","");
+        return preferences.getString("data", "");
     }
 
-    public static void setJsonString(Activity context,String string){
-        SharedPreferences preferences = context.getSharedPreferences("data",Context.MODE_PRIVATE);
+    public static void setJsonString(Activity context, String string) {
+        SharedPreferences preferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("data",string);
+        editor.putString("data", string);
         editor.apply();
-       }
+    }
 
     public static boolean isTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)

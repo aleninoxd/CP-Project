@@ -12,21 +12,19 @@ public class Apps extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apps);
         getSupportFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.entrance,R.anim.exit)
-                .replace(R.id.container,new GridApps()).commitAllowingStateLoss();
+                .setCustomAnimations(R.anim.entrance, R.anim.exit)
+                .replace(R.id.container, new GridApps()).commitAllowingStateLoss();
     }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);
-        if (fragment instanceof GridApps){
-            Apps.this.finish();
-        } else if (fragment instanceof Details){
+        if (fragment instanceof Details) {
             getSupportFragmentManager().beginTransaction()
-                    .setCustomAnimations(R.anim.in_right,R.anim.out_right)
-                    .replace(R.id.container,new GridApps()).commitAllowingStateLoss();
+                    .setCustomAnimations(R.anim.in_right, R.anim.out_right)
+                    .replace(R.id.container, new GridApps()).commitAllowingStateLoss();
+        } else if (fragment instanceof GridApps){
+            Apps.this.finish();
         }
-
     }
 }
